@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 style="color:red">Bài 1: Điểm trung bình và tổng của 3 môn :Vật lí , Hóa học và Sinh học </h2>
+Vật lý: <input type="number" id="vatLy">
+<p></p>
+Hóa học: <input type="number" id="hoaHoc">
+<p></p>
+Sinh học: <input type="number" id="sinhHoc">
+<p></p>
+<button onclick="bai1()">Xem Kết Quả</button><br>
+<p id="hienThiKetQua"></p>
+<script>
+    function bai1(){
+        let VatLy = + document.getElementById("vatLy").value;
+        let HoaHoc = + document.getElementById("hoaHoc").value;
+        let SinhHoc = + document.getElementById("sinhHoc").value;
+        let tong = VatLy + HoaHoc + SinhHoc;
+        let trungbinh = (VatLy + HoaHoc + SinhHoc)/3;
+        document.getElementById("hienThiKetQua").innerHTML = "<b>Điểm trung bình:</b> "+trungbinh+" <b>Tổng:</b> "+tong;
+    }
+</script>
+
+<h2 style="color:blue">Bài 2: Chương trình chuyển độ 0C sang 0F </h2>
+Độ 0C : <input type="number" id="doC">
+<p></p>
+<button onclick="bai2()">Chuyển Đổi</button><br>
+<p id="nhietdoF"></p>
+<script>
+    function bai2(){
+        let doC = + document.getElementById("doC").value;
+        let doF = (doC/5)*9+32;
+        document.getElementById("nhietdoF").innerText = "= " + doF + " Độ F";
+    }
+</script>
+
+<h2 style="color:green">Bài 3,4: Tính Diện Tích và Chu Vi Hình Tròn</h2>
+Bán kính của hình tròn là : <input type="number" id="banKinh">
+<p></p>
+<button onclick="bai3_4()">Kết Quả</button><br>
+<p id="xemketqua"></p>
+<script>
+    function bai3_4(){
+       let r= + document.getElementById("banKinh").value;
+       let DienTich= 3.14*r*r;
+       let ChuVi= 2*3.14*r;
+       document.getElementById("xemketqua").innerHTML = "Diện tích hình tròn là: "+DienTich+" ; "+"Chu vi hình tròn là: "+ChuVi;
+    }
+</script>
+</body>
+</html>
