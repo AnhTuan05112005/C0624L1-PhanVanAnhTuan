@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xét điểm học lực của học sinh</title>
+</head>
+<body>
+<script>
+    let a = +prompt("nhập điểm bài kiểm tra: ");
+    let b = +prompt("nhập điểm thi giữa kì: ");
+    let c = +prompt("nhập điểm thi cuối kì: ");
+    let ketqua ;
+    ketqua= (a+b*2+c*3)/6;
+    console.log("trung bình điểm là : " + ketqua);
+    if(ketqua>=8)
+    {
+        console.log("học lực của học sinh là : loại giỏi ");
+    }
+    else {
+        if(ketqua<8&&ketqua>=6.5)
+            console.log("học lực của học sinh là : loại khá ");
+        else {
+            if(ketqua<6.5&&ketqua>=4.5)
+                console.log("học lực của học sinh là : loại trung bình ");
+            else console.log("học lực của học sinh là : loại yếu ");
+        }
+    }
+</script>
+</body>
+</html>
