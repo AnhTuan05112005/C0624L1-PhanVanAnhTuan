@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính doanh thu</title>
+</head>
+<body>
+<script>
+    let DoanhSo = +prompt("Nhập doanh số bán hàng (VND)");
+    if (Number.isInteger(DoanhSo) && DoanhSo > 1000) {
+        if (DoanhSo <= 2000000) {
+            console.log("3%");
+        } else if (DoanhSo <= 5000000) {
+            console.log("6%");
+        } else {
+            console.log("10%");
+        }
+    }
+</script>
+</body>
+</html>

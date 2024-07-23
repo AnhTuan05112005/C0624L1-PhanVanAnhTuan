@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính cước điện thoại của 1 hộ gia đình</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Tổng số phút gọi");
+    if (Number.isInteger(a) && a > 0) {
+        let b = 25000;
+        if (a <= 50) {
+             b+= 600*a;
+        } else if (a <= 200) {
+            b += 600*50 + 400*(a-50);
+        } else {
+            b += 600*50 + 400*150 + 200*(a-200);
+        }
+        console.log("Cước phí phải trả là "+b+" VND");
+    }
+</script>
+</body>
+</html>
