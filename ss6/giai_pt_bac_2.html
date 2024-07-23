@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    let a = +prompt("nhập vào cơ số a: ");
+    let b = +prompt("nhập vào cơ số b: ");
+    let c = +prompt("nhập vào hệ số tự do c: ");
+    denta =(b*b) - (4*a*c);
+    if (denta===0){
+        console.log("phương trình có nghiệm kép : " +"x = "+ (-b)/a);
+    }
+    else {
+        if(denta<0) console.log("phương trình vô nghiệm ");
+        else {
+            x1= (-b+Math.sqrt(denta))/(2*a);
+            x2= (-b-Math.sqrt(denta))/(2*a);
+            console.log("phương trình có 2 nghiệm phân biệt là : "+ "x1 = "+x1+","+"x2 = "+x2);
+        }
+    }
+
+</script>
+</body>
+</html>
