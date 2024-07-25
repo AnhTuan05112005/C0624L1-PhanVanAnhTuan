@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let nhietDo = +prompt("Nhập nhiệt độ hiện tại:");
+    while (nhietDo  < 20 || nhietDo  > 100) {
+        if (nhietDo  < 20) {
+            alert("vui lòng tăng nhiệt độ lên")
+            nhietDo  = +prompt("nhập nhiệt độ của bạn sau khi tăng lên");
+        } else {
+            alert("vui lòng giảm nhiệt độ xuống")
+            nhietDo  = +prompt("nhập nhiệt độ của bạn sau khi giảm xuống");
+        }
+    }
+</script>
+</body>
+</html>
