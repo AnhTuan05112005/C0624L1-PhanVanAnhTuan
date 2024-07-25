@@ -5,6 +5,21 @@
     <title>Bài 4 luyện tập 1</title>
 </head>
 <body>
+<script>
+    let number1 = 0;
+    let number2 = 1;
+    let number3;
+    document.write(number1+"<br>");
+    document.write(number2+"<br>");
+    for( let i =1;i<=20;i++) {
+        number3 = number1+number2;
+        if(number3%5===0) {document.write("số đầu tiên chia hết cho 5 là : "+number3);
+            break;}
+        else {
+            number1 = number2;
+            number2 = number3;
+        }
+    }
 
 
 </body>
