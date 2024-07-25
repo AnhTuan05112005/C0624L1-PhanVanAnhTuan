@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 6 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let sum=0;
+    let soLuong=0;
+    debugger
+    for(let i=0;i<10000;i++)
+    {
+        if(i%7===0){
+            sum+=i;
+            soLuong++;
+            if(soLuong===30)
+            { document.write("tổng của 30 số đầu tiên chia hết cho 7 là: "+sum);
+                break;}
+
+        }
+    }
+</script>
+</body>
+</html>

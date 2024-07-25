@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let number1 = 0;
+    let number2 = 1;
+    let number3;
+    let sumNumber=number1+number2;
+    document.write(number1+"<br>");
+    document.write(number2+"<br>");
+    for( let i =1;i<=20;i++) {
+        number3 = number1+number2;
+
+        number1 = number2;
+        number2 = number3;
+        sumNumber+=number3;
+
+    }
+    document.write("tổng của 20 số đầu tiên là : "+sumNumber);
+</script>
+</body>
+</html>
