@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 luyện tập 2</title>
+</head>
+<body>
+<script>
+    let number = +prompt("nhập vào số nguyên cần tính giai thừa: ");
+    while (number < 0) {
+        number = +prompt("nhập lại số nguyên khác : ");
+    }
+    let i = 1;
+    let number1 = 1;
+    if (number === 0) {
+        document.write("giai thừa của số 0 là : 1 ");
+    } else {
+        while (i <= number) {
+            number1 = number1 * i;
+            i++;
+        }
+        document.write("giai thừa của số " + number + " là : " + number1);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 1 luyện tập 2</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Bạn cần in ra bao nhiêu số : ");
+    while (a < 2){
+        a= +prompt("Bạn nên nhập lại số lượng bạn cần in ra : ");
+    }
+
+    let number1 = 0;
+    let number2 = 1;
+    let number3;
+    document.write(number1+"<br>");
+    document.write(number2+"<br>");
+    for( let i =1;i<=a;i++) {
+        number3 = number1+number2;
+
+        number1 = number2;
+        number2 = number3;
+        document.write(number3);
+        document.write("<br>");
+    }
+
+</script>
+</body>
+</html>
