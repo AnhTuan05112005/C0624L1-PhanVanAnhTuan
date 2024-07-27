@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Các hàm có sẵn trong mảng</title>
+</head>
+<body>
+
+<script>
+    //bài 1
+    let arrayNumber = [1,2,3,5,6];
+    console.log(arrayNumber);
+    let arrayNumber1 = [9,10,11,12,17];
+    console.log(arrayNumber1);
+    let newArray = arrayNumber.concat(arrayNumber1);
+    console.log(newArray);
+
+    //bài 2
+    let number = +prompt("Nhập 1 số cho bài 2: ");
+    let array = number.toString();
+    let arrNumber = [array[0]];
+    let i;
+    for (i = 1; i < array.length; i++) {
+        if ((array[i - 1] % 2 === 0) && (array[i] % 2 === 0)) {
+            arrNumber.push('-', array[i]);
+        } else {
+            arrNumber.push(array[i]);
+        }
+    }
+    console.log(arrNumber.join(''));
+
+     //bài 3
+    let UPPER = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+    let LOWER = "abcdefghijklmnopqrstuvxwyz";
+    let String = prompt("nhập vào 1 chuỗi : ");
+    let i;
+    let result = [];
+    for (i = 0; i < String.length; i++) {
+        if (UPPER.indexOf(String[i]) !== -1) {
+            result.push(String[i].toLowerCase());
+        } else if (LOWER.indexOf(String[i]) !== -1) {
+            result.push(String[i].toUpperCase());
+        } else {
+            result.push(String[i]);
+        }
+    }
+    console.log(result.join(""));
+</script>
+</body>
+</html>
