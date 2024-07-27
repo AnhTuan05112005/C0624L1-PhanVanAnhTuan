@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>luyện tập 1 bài 1</title>
+</head>
+<body>
+<script>
+    let arrayNumber = Array();
+    let i = 0;
+    while (i < 10) {
+        arrayNumber[i] = +prompt("nhập phần tử cho hàm : ");
+        i++;
+    }
+    document.write("10 phần tử trong hàm là : " + arrayNumber + "<br>");
+    let count = 0;
+    for (i = 0; i < 10; i++) {
+        if (arrayNumber[i] >= 10) {
+            count++;
+        }
+    }
+    document.write("số phần tử lớn hơn hoặc bằng 10 là : " + count);
+
+
+
+
+</script>
+</body>
+</html>
