@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let a = +prompt("nhập chiều dài mảng : ");
+    let arrayNumber = Array();
+    let i = 0;
+    while (i < a) {
+        arrayNumber[i] = +prompt("nhập phần tử cho mảng : ");
+        i++;
+
+    }
+    let count = 0;
+    for (i=1;i<a;i++){
+        if(arrayNumber[i]<0){
+            count++;
+            console.log(arrayNumber);
+        }
+    }
+    console.log("số nguyên âm trong chuỗi là : "+count +" số âm ");
+</script>
+</body>
+</html>

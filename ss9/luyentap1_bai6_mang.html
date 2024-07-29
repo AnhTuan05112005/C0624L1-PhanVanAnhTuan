@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let arrayNumber = Array();
+    let i = 0;
+    while (i < 10) {
+        arrayNumber[i] = +prompt("nhập phần tử cho mảng : ");
+        i++;
+    }
+    document.write(" phần tử trong hàm là : " + arrayNumber + "<br>");
+    let numberV = +prompt("nhập phần tử số nguyên V : ");
+    for (i = 1; i < 10; i++) {
+        if (arrayNumber[i] === numberV) {
+            document.write(numberV + " V is in the array " + "<br>");
+        } else document.write(numberV + " V is not in the array " + "<br>");
+    }
+
+</script>
+</body>
+</html>
