@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let arrayNumber = Array();
+    let i = 0;
+    while (i < 10) {
+        arrayNumber[i] = +prompt("nhập phần tử cho mảng : ");
+        i++;
+    }
+    document.write("các phần tử của mảng là: "+ arrayNumber + "<br>");
+    arrayNumber.sort(function(a,b){
+        return b-a;
+    })
+    document.write("các phần tử được sắp xếp theo thứ tự giảm dần là: "+arrayNumber);
+
+</script>
+</body>
+</html>

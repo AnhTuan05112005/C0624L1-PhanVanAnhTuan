@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 9 luyện tập 1</title>
+</head>
+<body>
+<script>
+    let arrayNumberA = Array();
+    let i = 0;
+    while (i < 10) {
+        arrayNumberA[i] = +prompt("nhập phần tử cho mảng A : ");
+        i++;
+    }
+    document.write("Hiển thị mảng A: "+arrayNumberA+"<br>");
+    let arrayNumberB = Array();
+    let j = 0;
+    while (j < 10) {
+        arrayNumberB[j] = +prompt("nhập phần tử cho mảng B : ");
+        j++;
+    }
+    document.write("Hiển thị mảng B: "+arrayNumberB+"<br>");
+    let arrayNumberC = Array(20);
+    arrayNumberC = arrayNumberA.concat(arrayNumberB);
+    document.write("Mảng C được nối từ mảng A và mảng B là : "+arrayNumberC);
+
+
+</script>
+</body>
+</html>
