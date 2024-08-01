@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2 luyện tập 2</title>
+</head>
+<body>
+<script>
+    let arrayA = Array();
+    let a = +prompt("nhập chiều dài cho mảng: ");
+    let i=0;
+    while(i<a){
+        arrayA[i]= +prompt("nhập phần tử cho mảng: ");
+        i++;
+    }
+    document.write("mang A : "+arrayA+"<br>");
+    let arrayB = arrayA.reverse();
+    document.write("mang la: " + arrayB+"<br>");
+    let j=0;
+    while(j<a){
+        document.write( arrayB[j]);
+        j++;
+    }
+</script>
+</body>
+</html>

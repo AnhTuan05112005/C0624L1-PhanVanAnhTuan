@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6 luyện tập 2</title>
+</head>
+<body>
+<script>
+    let number = +prompt("nhập số giá trị của mảng");
+    let arrayNumber = Array();
+    let i;
+    for (i = 0; i < number; i++) {
+        arrayNumber[i] = prompt(" nhập phần tử thứ " + i);
+    }
+    document.write("mảng được tạo ra là:" + arrayNumber + "<br>");
+    let j;
+    for (j in arrayNumber) {
+        if (arrayNumber[j] === '-') {
+            arrayNumber[j] = '_';
+        }
+    }
+    document.write("Mảng mới là : " + arrayNumber);
+</script>
+</body>
+</html>
