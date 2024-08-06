@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2 bài 6</title>
+</head>
+<body>
+<script>
+    function kiemTraSo(number) {
+        if (Number.isInteger(number) && number > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let number = +prompt("Nhập vào số cần kiểm tra : ");
+    if (kiemTraSo(number)) {
+        console.log("Số vừa nhập vào là số nguyên dương ");
+    } else {
+        console.log("Số vừa nhập vào không phải là số nguyên dương");
+    }
+</script>
+</body>
+</html>

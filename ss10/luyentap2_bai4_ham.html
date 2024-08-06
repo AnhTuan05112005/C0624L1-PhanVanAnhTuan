@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2 bài 4</title>
+</head>
+<body>
+<script>
+    function isNumber(a) {
+        if (isNaN(a)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    let number = prompt("Nhập vào ký tự cần kiểm tra: ")
+    if (isNumber(number)) {
+        console.log("Ký tự nhập vào là 1 con số");
+    } else {
+        console.log("Ký tự nhập vào không phải là số");
+    }
+</script>
+</body>
+</html>
