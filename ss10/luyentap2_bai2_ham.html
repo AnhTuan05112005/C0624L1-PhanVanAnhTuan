@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập 2 bài 2</title>
+</head>
+<body>
+<script>
+    function chuVi(banKinh) {
+        return (2 * Math.PI * banKinh);
+    }
+    function dienTich(banKinh) {
+        return (banKinh * banKinh * Math.PI);
+    }
+    let banKinh = +prompt("Nhập bán kính hình tròn : ");
+    let ChuVi = chuVi(banKinh);
+    console.log("chu vi hình tròn là: " + ChuVi);
+    let DienTich = dienTich(banKinh);
+    console.log("diện tích hình tròn là: " + DienTich);
+</script>
+</body>
+</html>

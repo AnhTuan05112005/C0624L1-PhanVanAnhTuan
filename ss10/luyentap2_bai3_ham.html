@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3 luyện tập 2</title>
+</head>
+<body>
+<script>
+    let a = 1;
+    function giaiThua(number) {
+        for (let i = 2; i <= number; i++) {
+            a *= i;
+        }
+        return a
+    }
+    let number = +prompt("Nhập số cần tính giai thua :");
+    GiaiThua = giaiThua(number);
+    document.write("giai thừa của số nhập vào là : "+GiaiThua);
+</script>
+</body>
+</html>
