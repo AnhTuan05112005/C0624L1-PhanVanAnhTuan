@@ -5,6 +5,21 @@
     <title>Luyện tap 2 bài 5</title>
 </head>
 <body>
+<script>
 
+    function timGiaTriNhoNhat(a,b,c){
+        if(a<b&&a<c){
+            console.log("giá trị nhỏ nhất là : "+a);
+        }
+        else if(b<a&&b<c) {
+            console.log("giá trị nhỏ nhất là : "+b);
+        }
+        else console.log("giá trị nhỏ nhất là : "+c);
+    }
+    let a = +prompt("nhập vào giá trị a");
+    let b = +prompt("nhập vào giá trị b");
+    let c = +prompt("nhập vào giá trị c");
+    timGiaTriNhoNhat(a,b,c);
+</script>
 </body>
 </html>
