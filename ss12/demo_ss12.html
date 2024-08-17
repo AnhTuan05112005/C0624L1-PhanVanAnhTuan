@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web quản lí đồ gia dụng</title>
+    <style>
+        body {background-color:antiquewhite;}
+    </style>
+</head>
+<body>
+<h1 style="color:red">  QUẢN LÍ ĐỒ GIA DỤNG  </h1>
+<table border="1" style="border: 3px solid black;width:100%;height:50px;background-color: aqua;border-collapse: collapse">
+
+    <tbody>
+
+    <tr id="index">
+        <th colspan="7">THÔNG TIN SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>Tên sản phẩm</th>
+        <td><input type="text" id="name"></td>
+        <th>Số lượng</th>
+        <td><input type="number" id="number"></td>
+        <th></th>
+        <td>
+            <button style="background-color:limegreen" id="add" onclick="nhansanpham()">Thêm</button>
+            <button style="background-color:gold" id="edit" onclick="luusanpham()">Lưu</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<table border="1" style="border: 3px solid black;width:700px;border-collapse: collapse;background-color:white">
+    <tbody>
+    <tr>
+        <th style="font-size:40px" colspan="7">DANH SÁCH SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>Tên sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Thao tác</th>
+    </tr>
+    </tbody>
+    <tbody id="Sanpham">
+    <tr>
+        <td>Chảo chống dính</td>
+        <td>100</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:blue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    <tr>
+        <td>Nồi inot</td>
+        <td>200</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:blue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    </tbody>
+</table>
+<script src="sanpham1.js"></script>
+<script src="sanpham.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

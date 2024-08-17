@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web quản lí đồ gia dụng</title>
+    <style>
+        body {
+            background-image: url("anhhinhnen.png");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<table style="width:100%;height:100px;border-collapse: collapse;font-size:50px;background-color:#333">
+    <tr id="id">
+        <th colspan="7" style="color:white">QUẢN LÍ ĐỒ GIA DỤNG</th>
+    </tr>
+</table>
+<br>
+<table  style="border: 3px solid black;width:100%;height:70px;background-color: #4682B4;border-collapse: collapse;font-size:20px">
+
+    <tbody>
+
+    <tr id="index">
+        <th colspan="7" style="background-color:#B0E0E6">THÔNG TIN SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>Tên sản phẩm</th>
+        <td><input type="text" id="name"></td>
+        <th>Số lượng</th>
+        <td><input type="number" id="number"></td>
+        <th>Hình ảnh</th>
+        <td><input type="text" id="imageUrl" placeholder="URL của hình ảnh"></td>
+        <td>
+            <button style="background-color:limegreen" id="add" onclick="nhansanpham()">Thêm</button>
+            <button style="background-color:limegreen" id="edit" onclick="luusanpham()">Lưu</button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<br>
+<table  style="border: 3px solid black;width:700px;border-collapse: collapse;background-color:WhiteSmoke">
+    <tbody>
+    <tr>
+        <th style="font-size:40px;background-color:#B0E0E6" colspan="7">DANH SÁCH SẢN PHẨM</th>
+    </tr>
+    <tr style="background-color:#4682B4">
+        <th style="font-size:20px">Tên sản phẩm</th>
+        <th style="font-size:20px">Số lượng</th>
+        <th style="font-size:20px">Hình ảnh tượng trưng</th>
+        <th style="font-size:20px">Thao tác</th>
+    </tr>
+    </tbody>
+    <tbody id="Sanpham">
+    <tr>
+        <td>Chảo chống dính</td>
+        <td>100</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    <tr>
+        <td>Nồi inot</td>
+        <td>200</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    class SanPham1 {
+        constructor(name, number, imageUrl) {
+            this.name = name;
+            this.number = number;
+            this.imageUrl = imageUrl;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        setNumber(number) {
+            this.number = number;
+        }
+        setImageUrl(imageUrl) {
+            this.imageUrl = imageUrl;
+        }
+        getName() {
+            return this.name;
+        }
+        getNumber(){
+            return this.number;
+        }
+        getImageUrl() {
+            return this.imageUrl;
+        }
+        //hàm chỉnh sửa tên , số lượng và hình ảnh sản phầm
+        edit(name, number, imageUrl){
+            this.name = name;
+            this.number = number;
+            this.imageUrl = imageUrl;
+        }
+    }
+
+</script>
+<script>
+    class SanPham {
+        constructor(arr) {
+            this.sanpham = arr;
+        }
+        showList() {
+            let table = "";
+            for (let i = 0; i < this.sanpham.length; i++) {
+
+                table += '<tr>';
+                table += '<td>';
+                table += this.sanpham[i].name;
+                table += '</td>';
+
+                table += '<td>';
+                table += this.sanpham[i].number;
+                table += '</td>';
+
+                table += '<td>';
+                table += '<img src="' + this.sanpham[i].imageUrl + '" alt="' + this.sanpham[i].name + '" style="width:100px;height:100px;">';
+                table += '</td>';
+
+                table += '<td>' +
+                    '<button style="background-color: red; color: white "  type="button" onclick="deleteSanpham('+i+')">Xóa</button> ' +
+                    ' <button  style="background-color: MidnightBlue ; color: white" type="button" onclick="updateSanpham('+i+')">Chỉnh sửa</button>' +
+                    '</td>';
+
+                table += '</tr>';
+            }
+            document.getElementById("Sanpham").innerHTML = table;
+        }
+        nhansanpham(sanpham) {
+            this.sanpham.push(sanpham);
+        }
+        delete(name) {
+            this.sanpham.splice(name, 1);
+        }
+        findSanphamById(name){
+            return this.sanpham[name];
+        }
+        edit(sanpham, name, number, imageUrl){
+            sanpham.edit(name, number, imageUrl);
+        }
+    }
+
+</script>
+<script>
+    let sanpham = new SanPham1("Chảo chống dính", 100, "chaochongdinh.png");
+    let sanpham1 = new SanPham1("Nồi inox", 200, "nồi inox.png");
+    let arr = [sanpham, sanpham1];
+
+    let quanli = new SanPham(arr);
+
+    function nhansanpham(){
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+        let imageUrl = document.getElementById("imageUrl").value;
+
+        let sanpham = new SanPham1(name, number, imageUrl);
+        quanli.nhansanpham(sanpham);
+        quanli.showList();
+        clear();
+    }
+    function deleteSanpham(name) {
+        let confirmDelete = confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
+        if (confirmDelete) {
+            quanli.delete(name);
+            quanli.showList();
+        }
+    }
+    let sanphamId = 0;
+    function updateSanpham(name){
+        let sanpham = quanli.findSanphamById(name);
+        document.getElementById("name").value = sanpham.name;
+        document.getElementById("number").value = sanpham.number;
+        document.getElementById("imageUrl").value = sanpham.imageUrl;
+
+        sanphamId = name;
+    }
+
+    function luusanpham(){
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+        let imageUrl = document.getElementById("imageUrl").value;
+
+        let sanpham = quanli.findSanphamById(sanphamId);
+        quanli.edit(sanpham, name, number, imageUrl);
+        quanli.showList();
+        clear();
+        alert("Chỉnh sửa thành công!");
+    }
+    function clear(){
+        document.getElementById("name").value = "";
+        document.getElementById("number").value = "";
+        document.getElementById("imageUrl").value = "";
+    }
+    quanli.showList();
+</script>
+</body>
+</html>

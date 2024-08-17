@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập OOP</title>
+</head>
+<body>
+<script>
+    /* có 3 cách để khai báo lớp
+    * c1: sử dụng các singleton class*/
+    let dog={
+        //thuộc tính : giá trị của thuộc tính
+        name:"lulu",
+        age:3,
+        hairColor:"black",
+        say(){
+            console.log("gâu gâu");
+        }
+    }
+    console.log(dog);
+    console.log(dog.name);
+    console.log(dog.say);
+    /* c2: sử dụng function để tạo class ( ít khi sử dụng , hứng thú thì tìm hiểu thêm)
+    * c3: sử dụng từ khóa class trong ES6 để khai báo class */
+    // * tạo 1 class học viên có các thuộc tính :
+    // - tên
+    // - tuổi
+    // - email
+    // - hành vi giới thiệu bản thân
+    // - hành vi học
+
+
+    /* constructor - hàm khởi tạo(hàm đặc biệt)
+     * là hàm được sử dụng để tạo ra các đổi tượng từ class
+     * constructor thường chứa thuộc tính của class
+     *
+     * Từ khóa This trong class giúp chương tình hiểu được lập trình viên đang muốn trỏ
+       đến thuộc tính hoặc hành vi của lớp hiện tại
+     */
+    class Student{
+        constructor(name, age, email){
+            this.name = name;
+            this.age = age;
+            this.email = email;
+
+        }
+        behavior(hanhvi){
+            console.log("hành vi giới thiệu bản thân: "+hanhvi);
+        }
+    }
+    let student = new Student("Phan Văn Anh Tuấn",19,"anhtuanphan1407@gmail.com");
+    let student1 = new Student("Đinh Thị Chín",40,"chindinh@gmail.com");
+    console.log(student,student1);
+    student.behavior("tốt");
+
+    /*
+    * Các tính chất của OOP:
+    * 1. Tính bao đóng : (encapsulation)
+    * - là tính chất cho phép đóng gói các phương thức , thuộc tính của đối tượng vào 1 đơn vị duy nhất
+    * - với encapsulation giúp chúng ta ngăn chặn sự truy cập không được phép từ bên ngoài vào bên trong đối tượng.
+    *
+    * 2. Tính
+    *
+    * */
+
+
+
+
+</script>
+</body>
+</html>

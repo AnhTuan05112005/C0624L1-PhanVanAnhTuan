@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web quản lí đồ gia dụng</title>
+    <style>
+        body {
+            background-image: url("hinhnen.png");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<table style="width:100%;height:100px;border-collapse: collapse;font-size:50px">
+    <tr id="id">
+        <th colspan="7" style="color:Crimson">QUẢN LÍ ĐỒ GIA DỤNG</th>
+    </tr>
+</table>
+<br>
+<table border="1" style="border: 3px solid black;width:100%;height:70px;background-color: SkyBlue;border-collapse: collapse;font-size:20px">
+
+    <tbody>
+
+    <tr id="index">
+        <th colspan="7">THÔNG TIN SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>Tên sản phẩm</th>
+        <td><input type="text" id="name"></td>
+        <th>Số lượng</th>
+        <td><input type="number" id="number"></td>
+        <th></th>
+        <td>
+            <button style="background-color:limegreen" id="add" onclick="nhansanpham()">Thêm</button>
+            <button style="background-color:limegreen" id="edit" onclick="luusanpham()">Lưu</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<table border="1" style="border: 3px solid black;width:700px;border-collapse: collapse;background-color:WhiteSmoke">
+    <tbody>
+    <tr>
+        <th style="font-size:40px;background-color:WhiteSmoke" colspan="7">DANH SÁCH SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th style="font-size:20px">Tên sản phẩm</th>
+        <th style="font-size:20px">Số lượng</th>
+        <th style="font-size:20px">Thao tác</th>
+    </tr>
+    </tbody>
+    <tbody id="Sanpham">
+    <tr>
+        <td>Chảo chống dính</td>
+        <td>100</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    <tr>
+        <td>Nồi inot</td>
+        <td>200</td>
+        <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
+            <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
+            </button></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    class SanPham1 {
+        constructor (name,number) {
+            this.name=name;
+            this.number=number;
+        }
+        setName(name) {
+            this.name=name;
+        }
+        setNumber(number) {
+            this.number=number;
+        }
+        getName() {
+            return this.name;
+        }
+        getNumber(){
+            return this.number;
+        }
+//hàm chỉnh sửa tên và số lượng sản phầm
+        edit(name,number){
+            this.name=name;
+            this.number=number;
+        }
+    }
+</script>
+<script>
+    class SanPham {
+        constructor(arr) {
+            this.sanpham = arr;
+        }
+        showList() {
+            let table = "";
+            for (let i = 0; i < this.sanpham.length; i++) {
+
+
+                table += '<tr>';
+                table += '<td>';
+                table += this.sanpham[i].name;
+                table += '</td>';
+
+                table += '<td>';
+                table += this.sanpham[i].number;
+                table += '</td>';
+
+                table += '<td>' +
+                    '<button style="background-color: red; color: white "  type="button" onclick="deleteSanpham('+i+')">Xóa</button> ' +
+                    ' <button  style="background-color: MidnightBlue ; color: white" type="button" onclick="updateSanpham('+i+')">Chỉnh sửa</button>' +
+                    '</td>';
+
+                table += '</tr>';
+            }
+            document.getElementById("Sanpham").innerHTML = table;
+        }
+//thêm một sản phầm vào danh sách
+        nhansanpham(sanpham) {
+            this.sanpham.push(sanpham);
+        }
+//xóa 1 sản phẩm dựa trên chỉ số id của nó
+        delete(name) {
+            this.sanpham.splice(name, 1);
+        }
+//tìm và trả về sản phẩm dựa trên chỉ số của nó
+        findSanphamById(name){
+            return this.sanpham[name];
+        }
+//chỉnh sửa thông tin của 1 sản phẩm
+        edit(sanpham,name,number){
+            sanpham.edit(name,number);
+        }
+
+    }
+</script>
+<script>
+    let sanpham = new SanPham1("Chảo chống dính",100);
+    let sanpham1 = new SanPham1("Nồi inot",200);
+    let arr =[sanpham,sanpham1];
+
+//tạo đối tượng quản lí danh sản phẩm với mảng arr là danh sách ban đầu
+
+    let quanli = new SanPham(arr);
+    //hàm thêm sản phẩm
+    function nhansanpham(){
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+
+
+        let sanpham = new SanPham1(name,number);
+        quanli.nhansanpham(sanpham);
+        quanli.showList();
+        clear();
+    }
+    //hàm xóa dữ liệu trong các ô dữ liệu vừa nhập
+    function clear(){
+        document.getElementById("name").value ="";
+        document.getElementById("number").value ="";
+
+    }
+//hàm xóa sản ph
+//hàm chỉnh sửa sản phẩm
+    let sanphamId = 0;
+    function updateSanpham(name){
+        //tìm và hiển thị sản phẩm lên ô nhập dữ liệu
+        let sanpham = quanli.findSanphamById(name);
+        document.getElementById("name").value = sanpham.name;
+        document.getElementById("number").value = sanpham.number;
+
+        sanphamId = name;
+    }
+//hàm lưu sản phẩm
+    function luusanpham(){
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+
+        let sanpham = quanli.findSanphamById(sanphamId);
+        quanli.edit(sanpham,name,number);
+        quanli.showList();
+        clear();
+        alert("Chỉnh sửa thành công!");
+    }
+//hiển thị lại toàn bộ danh sách sau khi thực hiện
+    quanli.showList();
+</script>
+</body>
+</html>
