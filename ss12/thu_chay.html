@@ -27,40 +27,43 @@
     <tbody>
 
     <tr id="index">
-        <th colspan="7" style="background-color:#B0E0E6">THÔNG TIN SẢN PHẨM</th>
+        <th colspan="9" style="background-color:#B0E0E6;color:white">THÔNG TIN SẢN PHẨM</th>
     </tr>
     <tr>
-        <th>Tên sản phẩm</th>
+        <th style="color:white">Tên sản phẩm</th>
         <td><input type="text" id="name"></td>
-        <th>Số lượng</th>
+        <th style="color:white">Số lượng</th>
         <td><input type="number" id="number"></td>
-        <th>Hình ảnh</th>
+        <th style="color:white">Giá (VND/sanpham)</th>
+        <td><input type="number" id="price"></td>
+        <th style="color:white">Hình ảnh</th>
         <td><input type="text" id="imageUrl" placeholder="URL của hình ảnh"></td>
         <td>
             <button style="background-color:limegreen" id="add" onclick="nhansanpham()">Thêm</button>
             <button style="background-color:limegreen" id="edit" onclick="luusanpham()">Lưu</button>
         </td>
     </tr>
-
     </tbody>
 </table>
 <br>
 <table  style="border: 3px solid black;width:700px;border-collapse: collapse;background-color:WhiteSmoke">
     <tbody>
     <tr>
-        <th style="font-size:40px;background-color:#B0E0E6" colspan="7">DANH SÁCH SẢN PHẨM</th>
+        <th style="font-size:40px;background-color:#B0E0E6;color:white" colspan="7">DANH SÁCH SẢN PHẨM</th>
     </tr>
     <tr style="background-color:#4682B4">
-        <th style="font-size:20px">Tên sản phẩm</th>
-        <th style="font-size:20px">Số lượng</th>
-        <th style="font-size:20px">Hình ảnh tượng trưng</th>
-        <th style="font-size:20px">Thao tác</th>
+        <th style="font-size:20px;color:white">Tên sản phẩm</th>
+        <th style="font-size:20px;color:white">Số lượng</th>
+        <th style="font-size:20px;color:white">Giá(VND/sanpham)</th>
+        <th style="font-size:20px;color:white">Hình ảnh tượng trưng</th>
+        <th style="font-size:20px;color:white">Thao tác</th>
     </tr>
     </tbody>
     <tbody id="Sanpham">
     <tr>
         <td>Chảo chống dính</td>
         <td>100</td>
+        <td>50,000</td>
         <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
             <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
             </button></td>
@@ -68,6 +71,7 @@
     <tr>
         <td>Nồi inot</td>
         <td>200</td>
+        <td>40,000</td>
         <td> <button style="background-color:red;color:white" type="button" onclick="deleteSanpham(0)">Xóa</button>
             <button style="background-color:MidnightBlue;color:white" type="button" onclick="updateSanpham(0)">Chỉnh sửa
             </button></td>
@@ -76,9 +80,10 @@
 </table>
 <script>
     class SanPham1 {
-        constructor(name, number, imageUrl) {
+        constructor(name, number,price, imageUrl) {
             this.name = name;
             this.number = number;
+            this.price = price;
             this.imageUrl = imageUrl;
         }
         setName(name) {
@@ -86,6 +91,9 @@
         }
         setNumber(number) {
             this.number = number;
+        }
+        setPrice(price) {
+            this.price = price;
         }
         setImageUrl(imageUrl) {
             this.imageUrl = imageUrl;
@@ -96,12 +104,17 @@
         getNumber(){
             return this.number;
         }
+        getPrice(){
+            return this.price;
+        }
         getImageUrl() {
             return this.imageUrl;
         }
-        edit(name, number, imageUrl){
+        //hàm chỉnh sửa tên , số lượng và hình ảnh sản phầm
+        edit(name, number,price, imageUrl){
             this.name = name;
             this.number = number;
+            this.price = price;
             this.imageUrl = imageUrl;
         }
     }
@@ -126,6 +139,10 @@
                 table += '</td>';
 
                 table += '<td>';
+                table += this.sanpham[i].price;
+                table += '</td>';
+
+                table += '<td>';
                 table += '<img src="' + this.sanpham[i].imageUrl + '" alt="' + this.sanpham[i].name + '" style="width:100px;height:100px;">';
                 table += '</td>';
 
@@ -147,15 +164,15 @@
         findSanphamById(name){
             return this.sanpham[name];
         }
-        edit(sanpham, name, number, imageUrl){
-            sanpham.edit(name, number, imageUrl);
+        edit(sanpham, name, number,price, imageUrl){
+            sanpham.edit(name, number,price, imageUrl);
         }
     }
 
 </script>
 <script>
-    let sanpham = new SanPham1("Chảo chống dính", 100, "chaochongdinh.png");
-    let sanpham1 = new SanPham1("Nồi inox", 200, "nồi inox.png");
+    let sanpham = new SanPham1("Chảo chống dính", 100,"50.000","chaochongdinh.png");
+    let sanpham1 = new SanPham1("Nồi inox", 200,"40.000", "nồi inox.png");
     let arr = [sanpham, sanpham1];
 
     let quanli = new SanPham(arr);
@@ -163,9 +180,10 @@
     function nhansanpham(){
         let name = document.getElementById("name").value;
         let number = document.getElementById("number").value;
+        let price = document.getElementById("price").value;
         let imageUrl = document.getElementById("imageUrl").value;
 
-        let sanpham = new SanPham1(name, number, imageUrl);
+        let sanpham = new SanPham1(name, number,price, imageUrl);
         quanli.nhansanpham(sanpham);
         quanli.showList();
         clear();
@@ -182,6 +200,7 @@
         let sanpham = quanli.findSanphamById(name);
         document.getElementById("name").value = sanpham.name;
         document.getElementById("number").value = sanpham.number;
+        document.getElementById("price").value = sanpham.price;
         document.getElementById("imageUrl").value = sanpham.imageUrl;
 
         sanphamId = name;
@@ -190,10 +209,11 @@
     function luusanpham(){
         let name = document.getElementById("name").value;
         let number = document.getElementById("number").value;
+        let price = document.getElementById("price").value;
         let imageUrl = document.getElementById("imageUrl").value;
 
         let sanpham = quanli.findSanphamById(sanphamId);
-        quanli.edit(sanpham, name, number, imageUrl);
+        quanli.edit(sanpham, name, number,price, imageUrl);
         quanli.showList();
         clear();
         alert("Chỉnh sửa thành công!");
@@ -201,6 +221,7 @@
     function clear(){
         document.getElementById("name").value = "";
         document.getElementById("number").value = "";
+        document.getElementById("price").value = "";
         document.getElementById("imageUrl").value = "";
     }
     quanli.showList();
