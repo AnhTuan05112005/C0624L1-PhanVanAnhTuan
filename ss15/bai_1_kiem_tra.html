@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1 kiểm tra</title>
+</head>
+<body>
+<h2>Bài 1:</h2>
+<script>
+    // let arrayNumber = Array();
+    // let i = 0;
+    // while (i < 20) {
+    //     arrayNumber[i] = +prompt("nhập phần tử cho mảng : ");
+    //     i++;
+    // }
+    // document.write(" phần tử trong mảng là : " + arrayNumber + "<br>");
+    // let sum = 0;
+    // for (let i = 0; i < arrayNumber.length; i++) {
+    //     if (arrayNumber[i] % 3 === 0 && arrayNumber[i] % 5 === 0) {
+    //         sum += arrayNumber[i];
+    //     }
+    // }
+    // document.write("Tổng của các số là bội chung của 3 và 5: " + sum);
+</script>
+<h2>Bài 2: </h2>
+<script>
+    // function lamTronDiemSo(number) {
+    //     if (number <= 0 && number >= 100) {
+    //         alert("nhập lại số điểm")
+    //     }
+    //     if (number < 48) {
+    //         return number;
+    //     }
+    //     let boiTiepTheoCua5 = Math.ceil(number / 5) * 5;
+    //
+    //     if (boiTiepTheoCua5 - number < 3) {
+    //         return boiTiepTheoCua5;
+    //     }
+    //
+    //     return number;
+    // }
+    //
+    // let number = +prompt("nhập vào điểm số của học sinh: ");
+    // LamTronDiemSo = lamTronDiemSo(number);
+    // document.write(LamTronDiemSo);
+</script>
+<h2>Bài 4: </h2>
+
+<script>
+    class KhachHang {
+        constructor(maKhachHang, tenKhachHang, soDienThoai, diaChi, email) {
+            this.maKhachHang = maKhachHang;
+            this.tenKhachHang = tenKhachHang;
+            this.soDienThoai = soDienThoai;
+            this.diaChi = diaChi;
+            this.email = email;
+        }
+    }
+    let danhSachKhachHang = [];
+
+    function themKhachHang(maKhachHang, tenKhachHang, soDienThoai, diaChi, email) {
+        const khachHang = new KhachHang(maKhachHang, tenKhachHang, soDienThoai, diaChi, email);
+        danhSachKhachHang.push(khachHang);
+    }
+    function hienThiDanhSachKhachHang() {
+        console.log("Danh sách khách hàng:");
+        danhSachKhachHang.forEach((khachHang, index) => {
+            console.log(`Khách hàng ${index + 1}:`);
+            console.log(`  Mã khách hàng: ${khachHang.maKhachHang}`);
+            console.log(`  Tên khách hàng: ${khachHang.tenKhachHang}`);
+            console.log(`  Số điện thoại: ${khachHang.soDienThoai}`);
+            console.log(`  Địa chỉ: ${khachHang.diaChi}`);
+            console.log(`  Email: ${khachHang.email}`);
+            console.log("");
+        });
+    }
+    // Thêm khách hàng mới
+    themKhachHang("KH001", "Nguyen Van A", "0123456789", "123 Đường ABC, Hà Nội", "a.nguyen@example.com");
+    themKhachHang("KH002", "Tran Thi B", "0987654321", "456 Đường DEF, Hồ Chí Minh", "b.tran@example.com");
+
+    // Hiển thị danh sách khách hàng
+    hienThiDanhSachKhachHang();
+
+</script>
+
+</body>
+</html>
